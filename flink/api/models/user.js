@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const UserSchema = new mongoose.Schema(
   {
-    username: {
+    username:{
       type:String,
       require: true,
       min:3,
@@ -15,31 +15,47 @@ const UserSchema = new mongoose.Schema(
       max:550,
       unique:true,
     },
-    password: {
+    password:{
       type:String,
       required:true,
       min:6,
     },
-    profilePicture: {
+    profilePicture:{
       type:String,
       default: ""
     },
-    CoverPicture: {
+    CoverPicture:{
       type:String,
       default: ""
     },
-    followers: {
+    followers:{
       type:Array,
       default:[]
     },
-    followins: {
+    followins:{
       type:Array,
       default:[]
     },
-    isAdmin: {
+    isAdmin:{
       type:Boolean,
       default:false
-    }
+    },
+    desc:{
+      type:String,
+      max:50
+    },
+    city:{
+      type:String,
+      max:50
+    },
+    from:{
+      type:String,
+      max:50
+    },
+    relationship:{
+      type:Number,
+      enum:[1,2,3]
+    },
   },
 {timestamps:true}
 );
